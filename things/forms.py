@@ -11,6 +11,6 @@ from django import forms
 from .models import Thing
 
 class ThingForm(forms.Form):
-        name = forms.CharField(label="Name")
+        name = forms.CharField(label="Name", max_length=35)
         description = forms.CharField(widget=forms.Textarea,label="Description")
         quantity = forms.CharField(widget=forms.NumberInput, label="Quantity")
