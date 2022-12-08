@@ -8,9 +8,9 @@
 #
 # The description field must be displayed as a Textarea. The quantity field must be displayed as NumberInput.
 from django import forms
-from .models import User
+from .models import Thing
 
 class ThingForm(forms.Form):
         name = forms.CharField(label="Name")
-        description = forms.Textarea(label="Description")
-        quantity = forms.NumberInput(label="Quantity")
+        description = forms.CharField(widget=forms.Textarea,label="Description")
+        quantity = forms.CharField(widget=forms.NumberInput, label="Quantity")
