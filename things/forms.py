@@ -10,7 +10,14 @@
 from django import forms
 from .models import Thing
 
-class ThingForm(forms.Form):
-        name = forms.CharField(label="Name", max_length=35)
-        description = forms.CharField(widget=forms.Textarea,label="Description")
-        quantity = forms.CharField(widget=forms.NumberInput, label="Quantity")
+class ThingForm(forms.ModelForm):
+        class Meta:
+                model = Thing
+                fields = ['name', 'description', 'quantity']
+                widgets = {
+                        'description' : forms.Textarea,
+                        'quantity' : forms.NumberInput,
+                        }
+
+
+                
